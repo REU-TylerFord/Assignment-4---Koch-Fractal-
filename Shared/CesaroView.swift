@@ -31,15 +31,40 @@ struct CesaroView: View {
     
     var body: some View {
         
-        CesaroFractalShape(iterations: iterationsFromParent!, piAngleDivisor: angleFromParent!)
+        createCesaroFractalShapeView(iterations: iterationsFromParent, piAngleDivisor: angleFromParent)
+                .padding()
+        
+        //CesaroFractalShape(iterations: iterationsFromParent!, piAngleDivisor: angleFromParent!)
         //.fill(Color.red)
-            .stroke(Color.red, lineWidth: 1)
-        .frame(width: 600, height: 600)
-        .background(Color.white)
-        .padding()
+//        .stroke(Color.red, lineWidth: 1)
+//        .frame(width: 600, height: 600)
+//        .background(Color.white)
+        
         
         
     }
+    
+    func createCesaroFractalShapeView(iterations: Int?, piAngleDivisor: Int?) -> some View {
+            if (iterations != nil) && (piAngleDivisor != nil) {
+                return AnyView(
+                    CesaroFractalShape(iterations: iterations!, piAngleDivisor: piAngleDivisor!)
+                        .stroke(Color.red, lineWidth: 2)
+                        .frame(width: 600, height: 600)
+                        .background(Color.white)
+                )
+            } else {
+                
+                let newIterations :Int? = 0
+                let newPiAngleDivisor :Int? = 2
+                return AnyView(
+                    CesaroFractalShape(iterations: newIterations!, piAngleDivisor: newPiAngleDivisor!)
+                        .stroke(Color.red, lineWidth: 1)
+                        .frame(width: 600, height: 600)
+                        .background(Color.white)
+                )
+            }
+        }
+    
 }
 
 struct CesaroFractalShape: Shape {
@@ -115,9 +140,15 @@ func checkNumberOfIterations(number: Int) -> Int {
 
 
 
-//struct CesaroView_Previews: PreviewProvider {
-//    static var previews: some View {
-//
-//        CesaroView(iterationsFromParent: iterationsFromParent)
-//    }
-//}
+struct CesaroView_Previews: PreviewProvider {
+    
+    @State static var iterations :Int? = 2
+    @State static var angle :Int? = 4
+    
+    static var previews: some View {
+    
+
+        CesaroView(iterationsFromParent: $iterations, angleFromParent: $angle)
+        
+    }
+}

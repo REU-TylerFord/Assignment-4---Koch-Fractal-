@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 
-// Drawing the flake
+// Drawing the fractal
 
 /*** Distance needs to be a Double ***/
 func makeline(distance: Double, angle: CGFloat, x: CGFloat, y: CGFloat) -> [(xPoint: Double, yPoint: Double)] {
