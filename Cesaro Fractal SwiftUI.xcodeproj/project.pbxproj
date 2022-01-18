@@ -17,6 +17,14 @@
 		A59B4C7027964A340036063D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B4C4827964A330036063D /* ContentView.swift */; };
 		A59B4C7127964A340036063D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A59B4C4927964A340036063D /* Assets.xcassets */; };
 		A59B4C7227964A340036063D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A59B4C4927964A340036063D /* Assets.xcassets */; };
+		A5DE187027964E0200CDED15 /* CesaroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE186F27964E0200CDED15 /* CesaroView.swift */; };
+		A5DE187127964E0200CDED15 /* CesaroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE186F27964E0200CDED15 /* CesaroView.swift */; };
+		A5DE187227964E0200CDED15 /* CesaroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE186F27964E0200CDED15 /* CesaroView.swift */; };
+		A5DE187327964E0200CDED15 /* CesaroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE186F27964E0200CDED15 /* CesaroView.swift */; };
+		A5DE18752796506600CDED15 /* Cesaro_Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE18742796506600CDED15 /* Cesaro_Functions.swift */; };
+		A5DE18762796506600CDED15 /* Cesaro_Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE18742796506600CDED15 /* Cesaro_Functions.swift */; };
+		A5DE18772796506600CDED15 /* Cesaro_Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE18742796506600CDED15 /* Cesaro_Functions.swift */; };
+		A5DE18782796506600CDED15 /* Cesaro_Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE18742796506600CDED15 /* Cesaro_Functions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +56,8 @@
 		A59B4C6527964A340036063D /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A59B4C6927964A340036063D /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		A59B4C6B27964A340036063D /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		A5DE186F27964E0200CDED15 /* CesaroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CesaroView.swift; sourceTree = "<group>"; };
+		A5DE18742796506600CDED15 /* Cesaro_Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cesaro_Functions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +106,9 @@
 			isa = PBXGroup;
 			children = (
 				A59B4C4727964A330036063D /* Cesaro_Fractal_SwiftUIApp.swift */,
+				A5DE186F27964E0200CDED15 /* CesaroView.swift */,
 				A59B4C4827964A330036063D /* ContentView.swift */,
+				A5DE18742796506600CDED15 /* Cesaro_Functions.swift */,
 				A59B4C4927964A340036063D /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -289,7 +301,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5DE187027964E0200CDED15 /* CesaroView.swift in Sources */,
 				A59B4C6F27964A340036063D /* ContentView.swift in Sources */,
+				A5DE18752796506600CDED15 /* Cesaro_Functions.swift in Sources */,
 				A59B4C6D27964A340036063D /* Cesaro_Fractal_SwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,7 +312,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5DE187127964E0200CDED15 /* CesaroView.swift in Sources */,
 				A59B4C7027964A340036063D /* ContentView.swift in Sources */,
+				A5DE18762796506600CDED15 /* Cesaro_Functions.swift in Sources */,
 				A59B4C6E27964A340036063D /* Cesaro_Fractal_SwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,7 +323,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5DE187227964E0200CDED15 /* CesaroView.swift in Sources */,
 				A59B4C6027964A340036063D /* Tests_iOSLaunchTests.swift in Sources */,
+				A5DE18772796506600CDED15 /* Cesaro_Functions.swift in Sources */,
 				A59B4C5E27964A340036063D /* Tests_iOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,7 +334,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5DE187327964E0200CDED15 /* CesaroView.swift in Sources */,
 				A59B4C6C27964A340036063D /* Tests_macOSLaunchTests.swift in Sources */,
+				A5DE18782796506600CDED15 /* Cesaro_Functions.swift in Sources */,
 				A59B4C6A27964A340036063D /* Tests_macOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
