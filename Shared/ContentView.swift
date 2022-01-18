@@ -9,8 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     @State var guess = ""
-    @State private var totalIterations: Int? = 4
+    @State private var totalIterations: Int? = 5
     @State private var cesaroAngle: Int? = 4
+    @State var editedCesaroAngle: Int? = 4
+    @State var editedTotalIterations: Int? = 5
     @State var viewArray :[AnyView] = []
     
         
@@ -27,7 +29,7 @@ struct ContentView: View {
             
             ZStack {
                 
-                CesaroView(iterationsFromParent: $totalIterations)
+                CesaroView(iterationsFromParent: $totalIterations, angleFromParent: $cesaroAngle).drawingGroup()
                     
                 // Stop the window shrinking to zero.
                 Spacer()
@@ -40,7 +42,9 @@ struct ContentView: View {
                     
                     Text(verbatim: "Iterations:")
                     .padding()
-                    TextField("Number of Iterations (must be between 0 and 8 inclusive)", value: $totalIterations, formatter: intFormatter)
+                    TextField("Number of Iterations (must be between 0 and 8 inclusive)", value: $editedTotalIterations, formatter: intFormatter, onCommit: {
+                        self.totalIterations = self.editedTotalIterations
+                    })
                 
                         .padding()
                     
@@ -50,7 +54,9 @@ struct ContentView: View {
                     
                     Text(verbatim: "Angle π/number:")
                     .padding()
-                    TextField("The angle of the Fractal is π/number entered", value: $totalIterations, formatter: intFormatter)
+                    TextField("The angle of the Fractal is π/number entered", value: $editedCesaroAngle, formatter: intFormatter, onCommit: {
+                        self.cesaroAngle = self.editedCesaroAngle
+                    })
                 
                         .padding()
                     
