@@ -42,7 +42,7 @@ struct ContentView: View {
                     
                     Text(verbatim: "Iterations:")
                     .padding()
-                    TextField("Number of Iterations (must be between 0 and 8 inclusive)", value: $editedTotalIterations, formatter: intFormatter, onCommit: {
+                    TextField("Number of Iterations (must be between 0 and 7 inclusive)", value: $editedTotalIterations, formatter: intFormatter, onCommit: {
                         self.totalIterations = self.editedTotalIterations
                     })
                 
@@ -54,7 +54,7 @@ struct ContentView: View {
                     
                     Text(verbatim: "Angle π/number:")
                     .padding()
-                    TextField("The angle of the Fractal is π/number entered", value: $editedCesaroAngle, formatter: intFormatter, onCommit: {
+                    TextField("The angle of the Fractal is π/number entered. Must be between 1 and 50.", value: $editedCesaroAngle, formatter: intFormatter, onCommit: {
                         self.cesaroAngle = self.editedCesaroAngle
                     })
                 

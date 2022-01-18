@@ -26,43 +26,43 @@ struct CesaroView: View {
     
     var angle: CGFloat = 0.0
 
-    
-    //iterations = checkNumberOfIterations(number: iterationsFromParent!)
+
     
     var body: some View {
         
         createCesaroFractalShapeView(iterations: iterationsFromParent, piAngleDivisor: angleFromParent)
                 .padding()
-        
-        //CesaroFractalShape(iterations: iterationsFromParent!, piAngleDivisor: angleFromParent!)
-        //.fill(Color.red)
-//        .stroke(Color.red, lineWidth: 1)
-//        .frame(width: 600, height: 600)
-//        .background(Color.white)
-        
-        
-        
+
     }
     
     func createCesaroFractalShapeView(iterations: Int?, piAngleDivisor: Int?) -> some View {
+        
+            var newIterations :Int? = 0
+            var newPiAngleDivisor :Int? = 2
+        
+        
             if (iterations != nil) && (piAngleDivisor != nil) {
-                return AnyView(
-                    CesaroFractalShape(iterations: iterations!, piAngleDivisor: piAngleDivisor!)
-                        .stroke(Color.red, lineWidth: 2)
-                        .frame(width: 600, height: 600)
-                        .background(Color.white)
-                )
+                
+                    
+                    newIterations = iterations
+                    
+                    newPiAngleDivisor = piAngleDivisor
+
+                
             } else {
                 
-                let newIterations :Int? = 0
-                let newPiAngleDivisor :Int? = 2
-                return AnyView(
-                    CesaroFractalShape(iterations: newIterations!, piAngleDivisor: newPiAngleDivisor!)
-                        .stroke(Color.red, lineWidth: 1)
-                        .frame(width: 600, height: 600)
-                        .background(Color.white)
-                )
+                    newIterations = 0
+                    newPiAngleDivisor = 2
+               
+                
             }
+        
+            return AnyView(
+                CesaroFractalShape(iterations: newIterations!, piAngleDivisor: newPiAngleDivisor!)
+                    .stroke(Color.red, lineWidth: 1)
+                    .frame(width: 600, height: 600)
+                    .background(Color.white)
+                )
         }
     
 }
@@ -91,15 +91,15 @@ struct CesaroFractalShape: Shape {
         x = center.x - CGFloat(size/2.0)
         y = rect.height/2.0 - CGFloat(yoffset)
         
-        guard iterations > 0 else { return Path() }
+        guard iterations >= 0 else { return Path() }
         
-        guard iterations < 9 else { return Path() }
+        guard iterations <= 7 else { return Path() }
         
         guard piAngleDivisor > 0 else {return Path()}
         
         guard piAngleDivisor < 50 else {return Path()}
     
-        CesaroPoints = CesaroFractalCalculator(fractalnum: iterations-1, x: x, y: y, size: size, angleDivisor: piAngleDivisor)
+        CesaroPoints = CesaroFractalCalculator(fractalnum: iterations, x: x, y: y, size: size, angleDivisor: piAngleDivisor)
         
 
         // Create the Path for the Cesaro Fractal
@@ -121,20 +121,6 @@ struct CesaroFractalShape: Shape {
         return (path)
     }
 }
-
-
-func checkNumberOfIterations(number: Int) -> Int {
-    
-    if (number <= 8 && number >= 0) {
-        
-        return number
-    }
-    
-        
-        return Int(8)
-    
-}
-
 
 
 

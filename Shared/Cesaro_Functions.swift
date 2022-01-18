@@ -32,47 +32,41 @@ func turn (angle: CGFloat, angleChange: Double) -> CGFloat
     return(newangle)
 }
 
+func calculateCesaroSide(_ angle: inout CGFloat, _ angleChange: inout CGFloat, _ fractalnum: Int, _ myX: inout CGFloat, _ myY: inout CGFloat, _ size: Double, _ angleDivisor: Int) -> [(xPoint: Double, yPoint: Double)] {
+    
+    var currentPoint: [(xPoint: Double, yPoint: Double)] = []  ///Array of tuples
+    ///
+    angle = turn(angle: angle, angleChange: angleChange)
+    currentPoint += CesaroSide(fractalnum: fractalnum, x: myX, y: myY, angle: angle, size: size, divisorForAngle: angleDivisor)
+    myX = CGFloat(currentPoint[currentPoint.endIndex-1].xPoint)
+    myY = CGFloat(currentPoint[currentPoint.endIndex-1].yPoint)
+    
+    return ( currentPoint)
+    
+}
+
 func CesaroFractalCalculator(fractalnum: Int, x: CGFloat, y: CGFloat, size: Double, angleDivisor: Int) -> [(xPoint: Double, yPoint: Double)]
 {
     var allThePoints: [(xPoint: Double, yPoint: Double)] = []  ///Array of tuples
     var myX = x
     var myY = y
     
-    var currentPoint: [(xPoint: Double, yPoint: Double)] = []  ///Array of tuples
     var angle: CGFloat = 0.0
+    var angleChange: CGFloat = 0.0
 
     allThePoints.append((xPoint: Double(x), yPoint: Double(y)))
     
+    angleChange = 90.0
+    allThePoints += calculateCesaroSide(&angle, &angleChange, fractalnum, &myX, &myY, size, angleDivisor)
+                        
+    angleChange = -90.0
+    allThePoints += calculateCesaroSide(&angle, &angleChange, fractalnum, &myX, &myY, size, angleDivisor)
     
-    angle = turn(angle: angle, angleChange: 90)
-    currentPoint += CesaroSide(fractalnum: fractalnum, x: myX, y: myY, angle: angle, size: size, divisorForAngle: angleDivisor)
-    myX = CGFloat(currentPoint[currentPoint.endIndex-1].xPoint)
-    myY = CGFloat(currentPoint[currentPoint.endIndex-1].yPoint)
-    allThePoints+=currentPoint
+    angleChange = -90.0
+    allThePoints += calculateCesaroSide(&angle, &angleChange, fractalnum, &myX, &myY, size, angleDivisor)
     
-    currentPoint.removeAll()
-    
-    angle = turn(angle: angle, angleChange: -90)
-    currentPoint += CesaroSide(fractalnum: fractalnum, x: myX, y: myY, angle: angle, size: size, divisorForAngle: angleDivisor)
-    myX = CGFloat(currentPoint[currentPoint.endIndex-1].xPoint)
-    myY = CGFloat(currentPoint[currentPoint.endIndex-1].yPoint)
-    allThePoints+=currentPoint
-    
-    currentPoint.removeAll()
-    
-    angle = turn(angle: angle, angleChange: -90)
-    currentPoint += CesaroSide(fractalnum: fractalnum, x: myX, y: myY, angle: angle, size: size, divisorForAngle: angleDivisor)
-    myX = CGFloat(currentPoint[currentPoint.endIndex-1].xPoint)
-    myY = CGFloat(currentPoint[currentPoint.endIndex-1].yPoint)
-    allThePoints+=currentPoint
-    
-    currentPoint.removeAll()
-    
-    angle = turn(angle: angle, angleChange: -90)
-    currentPoint += CesaroSide(fractalnum: fractalnum, x: myX, y: myY, angle: angle, size: size, divisorForAngle: angleDivisor)
-    myX = CGFloat(currentPoint[currentPoint.endIndex-1].xPoint)
-    myY = CGFloat(currentPoint[currentPoint.endIndex-1].yPoint)
-    allThePoints+=currentPoint
+    angleChange = -90.0
+    allThePoints += calculateCesaroSide(&angle, &angleChange, fractalnum, &myX, &myY, size, angleDivisor)
     
     return(allThePoints)
     
