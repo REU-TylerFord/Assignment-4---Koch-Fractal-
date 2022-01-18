@@ -12,12 +12,8 @@ struct CesaroView: View {
     
     @Binding var iterationsFromParent: Int?
     @Binding var angleFromParent: Int?
-    /// Class Parameters Necessary for Drawing
-    var framewidth: CGFloat = 0.0
-    var frameheight: CGFloat = 0.0
-    var iterations: Int = 0
-
     
+    /// Class Parameters Necessary for Drawing
     var allThePoints: [(xPoint: Double, yPoint: Double, radiusPoint: Double, color: String)] = []  ///Array of tuples
     var x: CGFloat = 75
     var y: CGFloat = 100
@@ -30,17 +26,26 @@ struct CesaroView: View {
     
     var body: some View {
         
+        //Create the displayed View from the function
         createCesaroFractalShapeView(iterations: iterationsFromParent, piAngleDivisor: angleFromParent)
                 .padding()
 
     }
     
+    /// createCesaroFractalShapeView
+    ///
+    /// This function ensures that the program will not crash if non-valid input is accidentally entered by the user.
+    ///
+    /// - Parameters:
+    ///   - iterations: number of iterations in the fractal
+    ///   - piAngleDivisor: integer that sets the angle as pi/piAngleDivisor so if 2, then the angle is π/2
+    /// - Returns: View With Cesaro Fractal Shape
     func createCesaroFractalShapeView(iterations: Int?, piAngleDivisor: Int?) -> some View {
         
             var newIterations :Int? = 0
             var newPiAngleDivisor :Int? = 2
         
-        
+        // Test to make sure the input is valid
             if (iterations != nil) && (piAngleDivisor != nil) {
                 
                     
@@ -57,6 +62,7 @@ struct CesaroView: View {
                 
             }
         
+        //Return the view with input numbers. View is blank if values are bad.
             return AnyView(
                 CesaroFractalShape(iterations: newIterations!, piAngleDivisor: newPiAngleDivisor!)
                     .stroke(Color.red, lineWidth: 1)
@@ -67,6 +73,13 @@ struct CesaroView: View {
     
 }
 
+/// CesaroFractalShape
+///
+/// calculates the Shape displayed in the Cesaro Fractal View
+///
+/// - Parameters:
+///   - iterations: number of iterations in the fractal
+///   - piAngleDivisor: integer that sets the angle as pi/piAngleDivisor so if 2, then the angle is π/2
 struct CesaroFractalShape: Shape {
     
     let iterations: Int
@@ -97,7 +110,7 @@ struct CesaroFractalShape: Shape {
         
         guard piAngleDivisor > 0 else {return Path()}
         
-        guard piAngleDivisor < 50 else {return Path()}
+        guard piAngleDivisor <= 50 else {return Path()}
     
         CesaroPoints = CesaroFractalCalculator(fractalnum: iterations, x: x, y: y, size: size, angleDivisor: piAngleDivisor)
         

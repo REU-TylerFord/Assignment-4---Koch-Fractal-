@@ -9,9 +9,17 @@ import Foundation
 import SwiftUI
 
 
-// Drawing the fractal
-
-/*** Distance needs to be a Double ***/
+/// makeline
+///
+/// Calculates the next vertex in the Cesaro Fractal
+///
+/// - Parameters:
+///   - distance: distance to travel to next point
+///   - angle: angle in which to travel
+///   - x: x value of the current vertex
+///   - y: y value of the current vetex
+/// - Returns: array containing the x and y values of the new vertex
+///
 func makeline(distance: Double, angle: CGFloat, x: CGFloat, y: CGFloat) -> [(xPoint: Double, yPoint: Double)] {
     
     let pi = CGFloat(Float.pi)
@@ -25,6 +33,12 @@ func makeline(distance: Double, angle: CGFloat, x: CGFloat, y: CGFloat) -> [(xPo
     
 }
 
+/// turn
+///
+/// Calculates the turn angle in the Cesaro Fractal to get the next point
+///
+/// - Returns: the new angle in which to progress the fractal
+///
 func turn (angle: CGFloat, angleChange: Double) -> CGFloat
 {
     let newangle = angle + CGFloat(angleChange)
@@ -32,6 +46,64 @@ func turn (angle: CGFloat, angleChange: Double) -> CGFloat
     return(newangle)
 }
 
+
+/// CesaroFractalCalculator
+///
+/// Calculates the 4 sided Cesaro Fractal
+///
+/// - Parameters:
+///   - fractalnum: number of times to iterate the fractal
+///   - x: x value of first vertex
+///   - y: y value of first vetex
+///   - size: size of the Fractal
+///   - angleDivisor: integer that sets the angle as pi/piAngleDivisor so if 2, then the angle is π/2
+/// - Returns: array of x and y points for all of the vertices in the Cesaro Fractal. Used to make the path for the view
+///
+func CesaroFractalCalculator(fractalnum: Int, x: CGFloat, y: CGFloat, size: Double, angleDivisor: Int) -> [(xPoint: Double, yPoint: Double)]
+{
+    var allThePoints: [(xPoint: Double, yPoint: Double)] = []  ///Array of tuples
+    var myX = x
+    var myY = y
+    
+    var angle: CGFloat = 0.0
+    var angleChange: CGFloat = 0.0
+
+    allThePoints.append((xPoint: Double(x), yPoint: Double(y)))
+    
+    // Calculates Side 1
+    angleChange = 90.0
+    allThePoints += calculateCesaroSide(&angle, &angleChange, fractalnum, &myX, &myY, size, angleDivisor)
+                    
+    // Calculates Side 2
+    angleChange = -90.0
+    allThePoints += calculateCesaroSide(&angle, &angleChange, fractalnum, &myX, &myY, size, angleDivisor)
+    
+    // Calculates Side 3
+    angleChange = -90.0
+    allThePoints += calculateCesaroSide(&angle, &angleChange, fractalnum, &myX, &myY, size, angleDivisor)
+
+    // Calculates Side 4
+    angleChange = -90.0
+    allThePoints += calculateCesaroSide(&angle, &angleChange, fractalnum, &myX, &myY, size, angleDivisor)
+    
+    return(allThePoints)
+    
+}
+
+/// calculateCesaroSide
+///
+/// Calculates the Cesaro Fractal from each side of the original 4 sided shape
+///
+/// - Parameters:
+///   - angle: current angle
+///   - angleChange: amount necessary to change angle to move in correct direction
+///   - fractalnum: number of times to iterate the fractal
+///   - myX: x value of current vertex
+///   - myY: x value of current vertex
+///   - size: size of the Fractal
+///   - angleDivisor: integer that sets the angle as pi/piAngleDivisor so if 2, then the angle is π/2
+/// - Returns: array of x and y points for all of the vertices in the Cesaro Fractal
+///
 func calculateCesaroSide(_ angle: inout CGFloat, _ angleChange: inout CGFloat, _ fractalnum: Int, _ myX: inout CGFloat, _ myY: inout CGFloat, _ size: Double, _ angleDivisor: Int) -> [(xPoint: Double, yPoint: Double)] {
     
     var currentPoint: [(xPoint: Double, yPoint: Double)] = []  ///Array of tuples
@@ -45,34 +117,20 @@ func calculateCesaroSide(_ angle: inout CGFloat, _ angleChange: inout CGFloat, _
     
 }
 
-func CesaroFractalCalculator(fractalnum: Int, x: CGFloat, y: CGFloat, size: Double, angleDivisor: Int) -> [(xPoint: Double, yPoint: Double)]
-{
-    var allThePoints: [(xPoint: Double, yPoint: Double)] = []  ///Array of tuples
-    var myX = x
-    var myY = y
-    
-    var angle: CGFloat = 0.0
-    var angleChange: CGFloat = 0.0
 
-    allThePoints.append((xPoint: Double(x), yPoint: Double(y)))
-    
-    angleChange = 90.0
-    allThePoints += calculateCesaroSide(&angle, &angleChange, fractalnum, &myX, &myY, size, angleDivisor)
-                        
-    angleChange = -90.0
-    allThePoints += calculateCesaroSide(&angle, &angleChange, fractalnum, &myX, &myY, size, angleDivisor)
-    
-    angleChange = -90.0
-    allThePoints += calculateCesaroSide(&angle, &angleChange, fractalnum, &myX, &myY, size, angleDivisor)
-    
-    angleChange = -90.0
-    allThePoints += calculateCesaroSide(&angle, &angleChange, fractalnum, &myX, &myY, size, angleDivisor)
-    
-    return(allThePoints)
-    
-}
-
-
+/// CesaroSide
+///
+/// Recursively calculates the Cesaro Fractal by decrementing the fractal number\
+///
+/// - Parameters:
+///   - fractalnum: number of times to iterate the fractal. Counts down to 0
+///   - x: x value of current vertex
+///   - y: y value of current vertex
+///   - angle: angle needed to move to the next vertex
+///   - size: size of the fractal. Recursively gets smaller.
+///   - divisorForAngle: integer that sets the angle as pi/piAngleDivisor so if 2, then the angle is π/2
+/// - Returns: array of x and y points for all of the vertices in the Cesaro Fractal
+/// 
 func CesaroSide(fractalnum: Int, x: CGFloat, y: CGFloat, angle: CGFloat, size: Double, divisorForAngle: Int) -> [(xPoint: Double, yPoint: Double)] {
     
     var myAngle = angle

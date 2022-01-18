@@ -22,13 +22,34 @@ class Tests_iOS: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
-        app.launch()
+    func testMakeline() throws {
+        
+        let distance = 35.0
+        let angle :CGFloat = 32.0
+        let x :CGFloat = 24.0
+        let y: CGFloat = 122.0
+        
+        let returnValue = makeline(distance: distance, angle: angle, x: x, y: y)
+        
+        XCTAssertEqual(returnValue[0].xPoint, 53.68168386334963, accuracy: 1.0E-7, "Was not equal to this resolution.")
+        XCTAssertEqual(returnValue[0].yPoint, 140.54717345139602, accuracy: 1.0E-7, "Was not equal to this resolution.")
 
-        // Use recording to get started writing UI tests.
+        
+    }
+
+    func testTurnAngle() throws {
+        // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let angleChange :CGFloat = 13.0
+        
+        let angle :CGFloat = 90.0
+        
+        let newAngle = turn(angle: angle, angleChange: angleChange)
+        
+        XCTAssertEqual(newAngle, 103.0, accuracy: 1.0E-7, "Was not equal to this resolution.")
+    
+        
     }
 
     func testLaunchPerformance() throws {
