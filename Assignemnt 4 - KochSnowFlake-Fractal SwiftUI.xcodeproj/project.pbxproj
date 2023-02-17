@@ -11,20 +11,20 @@
 		A59B4C6027964A340036063D /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B4C5F27964A340036063D /* Tests_iOSLaunchTests.swift */; };
 		A59B4C6A27964A340036063D /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B4C6927964A340036063D /* Tests_macOS.swift */; };
 		A59B4C6C27964A340036063D /* Tests_macOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B4C6B27964A340036063D /* Tests_macOSLaunchTests.swift */; };
-		A59B4C6D27964A340036063D /* Cesaro_Fractal_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B4C4727964A330036063D /* Cesaro_Fractal_SwiftUIApp.swift */; };
-		A59B4C6E27964A340036063D /* Cesaro_Fractal_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B4C4727964A330036063D /* Cesaro_Fractal_SwiftUIApp.swift */; };
+		A59B4C6D27964A340036063D /* KochSnowFlake_Fractal_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B4C4727964A330036063D /* KochSnowFlake_Fractal_SwiftUIApp.swift */; };
+		A59B4C6E27964A340036063D /* KochSnowFlake_Fractal_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B4C4727964A330036063D /* KochSnowFlake_Fractal_SwiftUIApp.swift */; };
 		A59B4C6F27964A340036063D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B4C4827964A330036063D /* ContentView.swift */; };
 		A59B4C7027964A340036063D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59B4C4827964A330036063D /* ContentView.swift */; };
 		A59B4C7127964A340036063D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A59B4C4927964A340036063D /* Assets.xcassets */; };
 		A59B4C7227964A340036063D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A59B4C4927964A340036063D /* Assets.xcassets */; };
-		A5DE187027964E0200CDED15 /* CesaroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE186F27964E0200CDED15 /* CesaroView.swift */; };
-		A5DE187127964E0200CDED15 /* CesaroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE186F27964E0200CDED15 /* CesaroView.swift */; };
-		A5DE187227964E0200CDED15 /* CesaroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE186F27964E0200CDED15 /* CesaroView.swift */; };
-		A5DE187327964E0200CDED15 /* CesaroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE186F27964E0200CDED15 /* CesaroView.swift */; };
-		A5DE18752796506600CDED15 /* Cesaro_Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE18742796506600CDED15 /* Cesaro_Functions.swift */; };
-		A5DE18762796506600CDED15 /* Cesaro_Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE18742796506600CDED15 /* Cesaro_Functions.swift */; };
-		A5DE18772796506600CDED15 /* Cesaro_Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE18742796506600CDED15 /* Cesaro_Functions.swift */; };
-		A5DE18782796506600CDED15 /* Cesaro_Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE18742796506600CDED15 /* Cesaro_Functions.swift */; };
+		A5DE187027964E0200CDED15 /* KochSnowFlakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE186F27964E0200CDED15 /* KochSnowFlakeView.swift */; };
+		A5DE187127964E0200CDED15 /* KochSnowFlakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE186F27964E0200CDED15 /* KochSnowFlakeView.swift */; };
+		A5DE187227964E0200CDED15 /* KochSnowFlakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE186F27964E0200CDED15 /* KochSnowFlakeView.swift */; };
+		A5DE187327964E0200CDED15 /* KochSnowFlakeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE186F27964E0200CDED15 /* KochSnowFlakeView.swift */; };
+		A5DE18752796506600CDED15 /* KochSnowFlake_Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE18742796506600CDED15 /* KochSnowFlake_Functions.swift */; };
+		A5DE18762796506600CDED15 /* KochSnowFlake_Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE18742796506600CDED15 /* KochSnowFlake_Functions.swift */; };
+		A5DE18772796506600CDED15 /* KochSnowFlake_Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE18742796506600CDED15 /* KochSnowFlake_Functions.swift */; };
+		A5DE18782796506600CDED15 /* KochSnowFlake_Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DE18742796506600CDED15 /* KochSnowFlake_Functions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A59B4C4727964A330036063D /* Cesaro_Fractal_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cesaro_Fractal_SwiftUIApp.swift; sourceTree = "<group>"; };
+		A59B4C4727964A330036063D /* KochSnowFlake_Fractal_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KochSnowFlake_Fractal_SwiftUIApp.swift; sourceTree = "<group>"; };
 		A59B4C4827964A330036063D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A59B4C4927964A340036063D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A59B4C4E27964A340036063D /* Cesaro Fractal SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cesaro Fractal SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,8 +56,8 @@
 		A59B4C6527964A340036063D /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A59B4C6927964A340036063D /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		A59B4C6B27964A340036063D /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
-		A5DE186F27964E0200CDED15 /* CesaroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CesaroView.swift; sourceTree = "<group>"; };
-		A5DE18742796506600CDED15 /* Cesaro_Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cesaro_Functions.swift; sourceTree = "<group>"; };
+		A5DE186F27964E0200CDED15 /* KochSnowFlakeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KochSnowFlakeView.swift; sourceTree = "<group>"; };
+		A5DE18742796506600CDED15 /* KochSnowFlake_Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KochSnowFlake_Functions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				A59B4C4627964A330036063D /* Shared */,
-				A59B4C5C27964A340036063D /* Tests iOS */,
 				A59B4C6827964A340036063D /* Tests macOS */,
 				A59B4C4F27964A340036063D /* Products */,
 			);
@@ -105,11 +104,12 @@
 		A59B4C4627964A330036063D /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				A59B4C4727964A330036063D /* Cesaro_Fractal_SwiftUIApp.swift */,
-				A5DE186F27964E0200CDED15 /* CesaroView.swift */,
+				A59B4C4727964A330036063D /* KochSnowFlake_Fractal_SwiftUIApp.swift */,
+				A5DE186F27964E0200CDED15 /* KochSnowFlakeView.swift */,
 				A59B4C4827964A330036063D /* ContentView.swift */,
-				A5DE18742796506600CDED15 /* Cesaro_Functions.swift */,
+				A5DE18742796506600CDED15 /* KochSnowFlake_Functions.swift */,
 				A59B4C4927964A340036063D /* Assets.xcassets */,
+				A59B4C5C27964A340036063D /* Tests iOS */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -242,7 +242,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A59B4C4527964A330036063D /* Build configuration list for PBXProject "Cesaro Fractal SwiftUI" */;
+			buildConfigurationList = A59B4C4527964A330036063D /* Build configuration list for PBXProject "Assignemnt 4 - KochSnowFlake-Fractal SwiftUI" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -301,10 +301,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5DE187027964E0200CDED15 /* CesaroView.swift in Sources */,
+				A5DE187027964E0200CDED15 /* KochSnowFlakeView.swift in Sources */,
 				A59B4C6F27964A340036063D /* ContentView.swift in Sources */,
-				A5DE18752796506600CDED15 /* Cesaro_Functions.swift in Sources */,
-				A59B4C6D27964A340036063D /* Cesaro_Fractal_SwiftUIApp.swift in Sources */,
+				A5DE18752796506600CDED15 /* KochSnowFlake_Functions.swift in Sources */,
+				A59B4C6D27964A340036063D /* KochSnowFlake_Fractal_SwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,10 +312,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5DE187127964E0200CDED15 /* CesaroView.swift in Sources */,
+				A5DE187127964E0200CDED15 /* KochSnowFlakeView.swift in Sources */,
 				A59B4C7027964A340036063D /* ContentView.swift in Sources */,
-				A5DE18762796506600CDED15 /* Cesaro_Functions.swift in Sources */,
-				A59B4C6E27964A340036063D /* Cesaro_Fractal_SwiftUIApp.swift in Sources */,
+				A5DE18762796506600CDED15 /* KochSnowFlake_Functions.swift in Sources */,
+				A59B4C6E27964A340036063D /* KochSnowFlake_Fractal_SwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,9 +323,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5DE187227964E0200CDED15 /* CesaroView.swift in Sources */,
+				A5DE187227964E0200CDED15 /* KochSnowFlakeView.swift in Sources */,
 				A59B4C6027964A340036063D /* Tests_iOSLaunchTests.swift in Sources */,
-				A5DE18772796506600CDED15 /* Cesaro_Functions.swift in Sources */,
+				A5DE18772796506600CDED15 /* KochSnowFlake_Functions.swift in Sources */,
 				A59B4C5E27964A340036063D /* Tests_iOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,9 +334,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5DE187327964E0200CDED15 /* CesaroView.swift in Sources */,
+				A5DE187327964E0200CDED15 /* KochSnowFlakeView.swift in Sources */,
 				A59B4C6C27964A340036063D /* Tests_macOSLaunchTests.swift in Sources */,
-				A5DE18782796506600CDED15 /* Cesaro_Functions.swift in Sources */,
+				A5DE18782796506600CDED15 /* KochSnowFlake_Functions.swift in Sources */,
 				A59B4C6A27964A340036063D /* Tests_macOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,7 +475,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V59RVGUYZD;
+				DEVELOPMENT_TEAM = J7499352F9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -492,9 +492,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jtIIT.Cesaro-Fractal-SwiftUI";
 				PRODUCT_NAME = "Cesaro Fractal SwiftUI";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -505,7 +507,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V59RVGUYZD;
+				DEVELOPMENT_TEAM = J7499352F9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -522,9 +524,11 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jtIIT.Cesaro-Fractal-SwiftUI";
 				PRODUCT_NAME = "Cesaro Fractal SwiftUI";
 				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -537,7 +541,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V59RVGUYZD;
+				DEVELOPMENT_TEAM = J7499352F9;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -566,7 +570,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V59RVGUYZD;
+				DEVELOPMENT_TEAM = J7499352F9;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -691,7 +695,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A59B4C4527964A330036063D /* Build configuration list for PBXProject "Cesaro Fractal SwiftUI" */ = {
+		A59B4C4527964A330036063D /* Build configuration list for PBXProject "Assignemnt 4 - KochSnowFlake-Fractal SwiftUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A59B4C7327964A340036063D /* Debug */,

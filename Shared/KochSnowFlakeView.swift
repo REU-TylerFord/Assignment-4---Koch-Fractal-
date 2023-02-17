@@ -4,11 +4,13 @@
 //
 //  Created by Jeff_Terry on 1/17/22.
 //
+// Repurposed by Tyler Ford for this Assignment - Kochs Snowflake Fractal
+// Edited on February 17th 
 
 import Foundation
 import SwiftUI
 
-struct CesaroView: View {
+struct KochSnowFlakeView: View {
     
     @Binding var iterationsFromParent: Int?
     @Binding var angleFromParent: Int?
@@ -27,20 +29,20 @@ struct CesaroView: View {
     var body: some View {
         
         //Create the displayed View from the function
-        createCesaroFractalShapeView(iterations: iterationsFromParent, piAngleDivisor: angleFromParent)
+        createKochSnowFlakeFractalShapeView(iterations: iterationsFromParent, piAngleDivisor: angleFromParent)
                 .padding()
 
     }
     
-    /// createCesaroFractalShapeView
+    /// createKochFractalShapeView
     ///
     /// This function ensures that the program will not crash if non-valid input is accidentally entered by the user.
     ///
     /// - Parameters:
     ///   - iterations: number of iterations in the fractal
     ///   - piAngleDivisor: integer that sets the angle as pi/piAngleDivisor so if 2, then the angle is π/2
-    /// - Returns: View With Cesaro Fractal Shape
-    func createCesaroFractalShapeView(iterations: Int?, piAngleDivisor: Int?) -> some View {
+    /// - Returns: View With Koch Fractal Shape
+    func createKochSnowFlakeFractalShapeView(iterations: Int?, piAngleDivisor: Int?) -> some View {
         
             var newIterations :Int? = 0
             var newPiAngleDivisor :Int? = 2
@@ -64,23 +66,23 @@ struct CesaroView: View {
         
         //Return the view with input numbers. View is blank if values are bad.
             return AnyView(
-                CesaroFractalShape(iterations: newIterations!, piAngleDivisor: newPiAngleDivisor!)
-                    .stroke(Color.red, lineWidth: 1)
+                KochSnowFlakeFractalShape(iterations: newIterations!, piAngleDivisor: newPiAngleDivisor!)
+                    .stroke(Color.white, lineWidth: 1)
                     .frame(width: 600, height: 600)
-                    .background(Color.white)
+                    .background(Color.black)
                 )
         }
     
 }
 
-/// CesaroFractalShape
+/// KochFractalShape
 ///
-/// calculates the Shape displayed in the Cesaro Fractal View
+/// calculates the Shape displayed in the KochFractal View
 ///
 /// - Parameters:
 ///   - iterations: number of iterations in the fractal
 ///   - piAngleDivisor: integer that sets the angle as pi/piAngleDivisor so if 2, then the angle is π/2
-struct CesaroFractalShape: Shape {
+struct KochSnowFlakeFractalShape: Shape {
     
     let iterations: Int
     let piAngleDivisor: Int
@@ -89,20 +91,21 @@ struct CesaroFractalShape: Shape {
     
     func path(in rect: CGRect) -> Path {
         
-        var CesaroPoints: [(xPoint: Double, yPoint: Double)] = []  ///Array of tuples
+        var KochSnowFlakePoints: [(xPoint: Double, yPoint: Double)] = []  ///Array of tuples
         
         var x: CGFloat = 0
         var y: CGFloat = 0
-        let size: Double = 550
+        let size: Double = 300
         
         // draw from the center of our rectangle
         let center = CGPoint(x: rect.width / 2, y: rect.height / 2)
         
         // Offset from center in y-direction for Cesaro Fractal
-        let yoffset = size/(2.0*tan(45.0/180.0*Double.pi))
-        
-        x = center.x - CGFloat(size/2.0)
-        y = rect.height/2.0 - CGFloat(yoffset)
+        let yoffset = size/(2.0*tan(30.0/180.0*Double.pi))
+                      
+       
+        x = center.x - CGFloat(size/6.0)
+        y = rect.height/1.5 - CGFloat(yoffset)
         
         guard iterations >= 0 else { return Path() }
         
@@ -112,7 +115,7 @@ struct CesaroFractalShape: Shape {
         
         guard piAngleDivisor <= 50 else {return Path()}
     
-        CesaroPoints = CesaroFractalCalculator(fractalnum: iterations, x: x, y: y, size: size, angleDivisor: piAngleDivisor)
+        KochSnowFlakePoints = KochSnowFlakeFractalCalculator(fractalnum: iterations, x: x, y: y, size: size, angleDivisor: piAngleDivisor)
         
 
         // Create the Path for the Cesaro Fractal
@@ -120,12 +123,12 @@ struct CesaroFractalShape: Shape {
         var path = Path()
 
         // move to the initial position
-        path.move(to: CGPoint(x: CesaroPoints[0].xPoint, y: CesaroPoints[0].yPoint))
+        path.move(to: CGPoint(x: KochSnowFlakePoints[0].xPoint, y: KochSnowFlakePoints[0].yPoint))
 
         // loop over all our points to draw create the paths
-        for item in 1..<(CesaroPoints.endIndex)  {
+        for item in 1..<(KochSnowFlakePoints.endIndex)  {
         
-            path.addLine(to: CGPoint(x: CesaroPoints[item].xPoint, y: CesaroPoints[item].yPoint))
+            path.addLine(to: CGPoint(x: KochSnowFlakePoints[item].xPoint, y: KochSnowFlakePoints[item].yPoint))
             
             
             }
@@ -139,7 +142,7 @@ struct CesaroFractalShape: Shape {
 
 
 
-struct CesaroView_Previews: PreviewProvider {
+struct KochSnowFlakeView_Previews: PreviewProvider {
     
     @State static var iterations :Int? = 2
     @State static var angle :Int? = 4
@@ -147,7 +150,7 @@ struct CesaroView_Previews: PreviewProvider {
     static var previews: some View {
     
 
-        CesaroView(iterationsFromParent: $iterations, angleFromParent: $angle)
+        KochSnowFlakeView(iterationsFromParent: $iterations, angleFromParent: $angle)
         
     }
 }

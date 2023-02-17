@@ -4,6 +4,9 @@
 //
 //  Created by Jeff_Terry on 1/17/22.
 //
+// Repurposed by Tyler Ford for this Assignment - Kochs Snowflake Fractal
+// Edited on February 17th
+
 
 import Foundation
 import SwiftUI
@@ -11,7 +14,7 @@ import SwiftUI
 
 /// makeline
 ///
-/// Calculates the next vertex in the Cesaro Fractal
+/// Calculates the next vertex in the Koch Fractal
 ///
 /// - Parameters:
 ///   - distance: distance to travel to next point
@@ -35,7 +38,7 @@ func makeline(distance: Double, angle: CGFloat, x: CGFloat, y: CGFloat) -> [(xPo
 
 /// turn
 ///
-/// Calculates the turn angle in the Cesaro Fractal to get the next point
+/// Calculates the turn angle in the Koch Fractal to get the next point
 ///
 /// - Returns: the new angle in which to progress the fractal
 ///
@@ -47,9 +50,9 @@ func turn (angle: CGFloat, angleChange: Double) -> CGFloat
 }
 
 
-/// CesaroFractalCalculator
+/// KochFractalCalculator
 ///
-/// Calculates the 4 sided Cesaro Fractal
+/// Calculates the 4 sided Koch Fractal
 ///
 /// - Parameters:
 ///   - fractalnum: number of times to iterate the fractal
@@ -57,9 +60,9 @@ func turn (angle: CGFloat, angleChange: Double) -> CGFloat
 ///   - y: y value of first vetex
 ///   - size: size of the Fractal
 ///   - angleDivisor: integer that sets the angle as pi/piAngleDivisor so if 2, then the angle is π/2
-/// - Returns: array of x and y points for all of the vertices in the Cesaro Fractal. Used to make the path for the view
+/// - Returns: array of x and y points for all of the vertices in the Koch Fractal. Used to make the path for the view
 ///
-func CesaroFractalCalculator(fractalnum: Int, x: CGFloat, y: CGFloat, size: Double, angleDivisor: Int) -> [(xPoint: Double, yPoint: Double)]
+func KochSnowFlakeFractalCalculator(fractalnum: Int, x: CGFloat, y: CGFloat, size: Double, angleDivisor: Int) -> [(xPoint: Double, yPoint: Double)]
 {
     var allThePoints: [(xPoint: Double, yPoint: Double)] = []  ///Array of tuples
     var myX = x
@@ -71,28 +74,26 @@ func CesaroFractalCalculator(fractalnum: Int, x: CGFloat, y: CGFloat, size: Doub
     allThePoints.append((xPoint: Double(x), yPoint: Double(y)))
     
     // Calculates Side 1
-    angleChange = 90.0
-    allThePoints += calculateCesaroSide(&angle, &angleChange, fractalnum, &myX, &myY, size, angleDivisor)
+    angleChange = 60.0
+    allThePoints += calculateKochSnowFlakeSide(&angle, &angleChange, fractalnum, &myX, &myY, size, angleDivisor)
                     
     // Calculates Side 2
-    angleChange = -90.0
-    allThePoints += calculateCesaroSide(&angle, &angleChange, fractalnum, &myX, &myY, size, angleDivisor)
+    angleChange = 120.0
+    allThePoints += calculateKochSnowFlakeSide(&angle, &angleChange, fractalnum, &myX, &myY, size, angleDivisor)
     
     // Calculates Side 3
-    angleChange = -90.0
-    allThePoints += calculateCesaroSide(&angle, &angleChange, fractalnum, &myX, &myY, size, angleDivisor)
+    angleChange = 120.0
+    allThePoints += calculateKochSnowFlakeSide(&angle, &angleChange, fractalnum, &myX, &myY, size, angleDivisor)
 
-    // Calculates Side 4
-    angleChange = -90.0
-    allThePoints += calculateCesaroSide(&angle, &angleChange, fractalnum, &myX, &myY, size, angleDivisor)
+    
     
     return(allThePoints)
     
 }
 
-/// calculateCesaroSide
+/// calculateKochSide
 ///
-/// Calculates the Cesaro Fractal from each side of the original 4 sided shape
+/// Calculates the Koch Fractal from each side of the original 4 sided shape
 ///
 /// - Parameters:
 ///   - angle: current angle
@@ -102,14 +103,14 @@ func CesaroFractalCalculator(fractalnum: Int, x: CGFloat, y: CGFloat, size: Doub
 ///   - myY: x value of current vertex
 ///   - size: size of the Fractal
 ///   - angleDivisor: integer that sets the angle as pi/piAngleDivisor so if 2, then the angle is π/2
-/// - Returns: array of x and y points for all of the vertices in the Cesaro Fractal
+/// - Returns: array of x and y points for all of the vertices in the Koch Fractal
 ///
-func calculateCesaroSide(_ angle: inout CGFloat, _ angleChange: inout CGFloat, _ fractalnum: Int, _ myX: inout CGFloat, _ myY: inout CGFloat, _ size: Double, _ angleDivisor: Int) -> [(xPoint: Double, yPoint: Double)] {
+func calculateKochSnowFlakeSide(_ angle: inout CGFloat, _ angleChange: inout CGFloat, _ fractalnum: Int, _ myX: inout CGFloat, _ myY: inout CGFloat, _ size: Double, _ angleDivisor: Int) -> [(xPoint: Double, yPoint: Double)] {
     
     var currentPoint: [(xPoint: Double, yPoint: Double)] = []  ///Array of tuples
     ///
     angle = turn(angle: angle, angleChange: angleChange)
-    currentPoint += CesaroSide(fractalnum: fractalnum, x: myX, y: myY, angle: angle, size: size, divisorForAngle: angleDivisor)
+    currentPoint += KochSnowFlakeSide(fractalnum: fractalnum, x: myX, y: myY, angle: angle, size: size, divisorForAngle: angleDivisor)
     myX = CGFloat(currentPoint[currentPoint.endIndex-1].xPoint)
     myY = CGFloat(currentPoint[currentPoint.endIndex-1].yPoint)
     
@@ -118,9 +119,9 @@ func calculateCesaroSide(_ angle: inout CGFloat, _ angleChange: inout CGFloat, _
 }
 
 
-/// CesaroSide
+/// KochSide
 ///
-/// Recursively calculates the Cesaro Fractal by decrementing the fractal number\
+/// Recursively calculates the Koch Fractal by decrementing the fractal number\
 ///
 /// - Parameters:
 ///   - fractalnum: number of times to iterate the fractal. Counts down to 0
@@ -129,9 +130,9 @@ func calculateCesaroSide(_ angle: inout CGFloat, _ angleChange: inout CGFloat, _
 ///   - angle: angle needed to move to the next vertex
 ///   - size: size of the fractal. Recursively gets smaller.
 ///   - divisorForAngle: integer that sets the angle as pi/piAngleDivisor so if 2, then the angle is π/2
-/// - Returns: array of x and y points for all of the vertices in the Cesaro Fractal
+/// - Returns: array of x and y points for all of the vertices in the Koch Fractal
 /// 
-func CesaroSide(fractalnum: Int, x: CGFloat, y: CGFloat, angle: CGFloat, size: Double, divisorForAngle: Int) -> [(xPoint: Double, yPoint: Double)] {
+func KochSnowFlakeSide(fractalnum: Int, x: CGFloat, y: CGFloat, angle: CGFloat, size: Double, divisorForAngle: Int) -> [(xPoint: Double, yPoint: Double)] {
     
     var myAngle = angle
     var myX = x
@@ -151,25 +152,25 @@ func CesaroSide(fractalnum: Int, x: CGFloat, y: CGFloat, angle: CGFloat, size: D
         
         let newSizeOfSide = size/(2.0*(1.0+sin(((theta))/2.0)))
         
-        currentPoint += CesaroSide(fractalnum: fractalnum-1, x: myX, y: myY, angle: myAngle, size: newSizeOfSide, divisorForAngle: piDivisorForAngle)
+        currentPoint += KochSnowFlakeSide(fractalnum: fractalnum-1, x: myX, y: myY, angle: myAngle, size: newSizeOfSide, divisorForAngle: piDivisorForAngle)
         myX = CGFloat(currentPoint[currentPoint.endIndex-1].xPoint)
         myY = CGFloat(currentPoint[currentPoint.endIndex-1].yPoint)
         
         myAngle = turn(angle: myAngle, angleChange: -(90.0-thetaDeg/2.0))
         
-        currentPoint += CesaroSide(fractalnum: fractalnum-1, x: myX, y: myY, angle: myAngle, size: newSizeOfSide, divisorForAngle: piDivisorForAngle)
+        currentPoint += KochSnowFlakeSide(fractalnum: fractalnum-1, x: myX, y: myY, angle: myAngle, size: newSizeOfSide, divisorForAngle: piDivisorForAngle)
         myX = CGFloat(currentPoint[currentPoint.endIndex-1].xPoint)
         myY = CGFloat(currentPoint[currentPoint.endIndex-1].yPoint)
         
         myAngle = turn(angle: myAngle, angleChange: (180.0-thetaDeg))
         
-        currentPoint += CesaroSide(fractalnum: fractalnum-1, x: myX, y: myY, angle: myAngle, size: newSizeOfSide, divisorForAngle: piDivisorForAngle)
+        currentPoint += KochSnowFlakeSide(fractalnum: fractalnum-1, x: myX, y: myY, angle: myAngle, size: newSizeOfSide, divisorForAngle: piDivisorForAngle)
         myX = CGFloat(currentPoint[currentPoint.endIndex-1].xPoint)
         myY = CGFloat(currentPoint[currentPoint.endIndex-1].yPoint)
         
         myAngle = turn(angle: myAngle, angleChange: -(90.0-thetaDeg/2.0))
         
-        currentPoint += CesaroSide(fractalnum: fractalnum-1, x: myX, y: myY, angle: myAngle, size: newSizeOfSide, divisorForAngle: piDivisorForAngle)
+        currentPoint += KochSnowFlakeSide(fractalnum: fractalnum-1, x: myX, y: myY, angle: myAngle, size: newSizeOfSide, divisorForAngle: piDivisorForAngle)
         
         
     }

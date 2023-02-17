@@ -4,15 +4,17 @@
 //
 //  Created by Jeff_Terry on 1/17/22.
 //
+// Repurposed by Tyler Ford for this Assignment - Kochs Snowflake Fractal
+// Edited on February 17th 
 
 import SwiftUI
 
 struct ContentView: View {
     @State var guess = ""
-    @State private var totalIterations: Int? = 5
-    @State private var cesaroAngle: Int? = 4
-    @State var editedCesaroAngle: Int? = 4
-    @State var editedTotalIterations: Int? = 5
+    @State private var totalIterations: Int? = 0
+    @State private var KochSnowFlakeAngle: Int? = 8
+    @State var editedKochSnowFlakeAngle: Int? = 8
+    @State var editedTotalIterations: Int? = 0
     @State var viewArray :[AnyView] = []
     
         
@@ -29,7 +31,7 @@ struct ContentView: View {
             
             ZStack {
                 
-                CesaroView(iterationsFromParent: $totalIterations, angleFromParent: $cesaroAngle).drawingGroup()
+               KochSnowFlakeView(iterationsFromParent: $totalIterations, angleFromParent: $KochSnowFlakeAngle).drawingGroup()
                     
                 // Stop the window shrinking to zero.
                 Spacer()
@@ -50,13 +52,6 @@ struct ContentView: View {
                     
                     }
                 
-                HStack{
-                    
-                    Text(verbatim: "Angle π/number:")
-                    .padding()
-                    TextField("The angle of the Fractal is π/number entered. Must be between 1 and 50.", value: $editedCesaroAngle, formatter: intFormatter, onCommit: {
-                        self.cesaroAngle = self.editedCesaroAngle
-                    })
                 
                         .padding()
                     
@@ -64,7 +59,7 @@ struct ContentView: View {
                }
            }
         }
-}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
